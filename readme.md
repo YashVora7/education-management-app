@@ -67,6 +67,7 @@ Analytics Routes:
 
 Accessible to Student-
 GET /analytics/total_students/:courseId: Fetch counts of students from course
+
 GET /analytics/average_grade/:studentId: Fetch average of student's grade from course all grades 
 
 Requirements
