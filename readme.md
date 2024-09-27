@@ -1,83 +1,84 @@
 # Education Management App - Backend
-This is the backend for the Education Management App. It provides CRUD (Create, Read, Update, Delete) operations for courses to admin. It handles user authentication and authorization, course management by admin, teacher, student with respective permissions, enrollment management, grade management and also provides course analytics using Node.js, Express.js, and MongoDB (Mongoose for schema definition).
 
-Features:
-User Authentication
-It provides CRUD (Create, Read, Update, Delete) operations for courses to admin.
-User authentication and authorization.
-Role-based permissions to access and authorization (Admin,Teacher,Student).
-Course management.
-Enrollment management.
-Grade management.
-It handles assignment upload and submit by teacher and student respectively
-Course Analytics.
-Statistics Using Aggregation
+The backend for the Education Management App offers role-based features for managing users, courses, enrollments, grades, and assignments. It also provides course analytics using Node.js, Express.js, and MongoDB.
 
-Technologies Used:
-Node.js: JavaScript runtime for building the backend.
-Express.js: Web framework to handle routes and middleware.
-MongoDB: NoSQL database for storing.
-Mongoose: ORM for MongoDB, used to define the schema and interact with the database.
-dotenv: For managing environment variables.
-JWT: Json-web-token for creating and verify token
-Multer: Middleware and configuration to handle files
+## Features
 
-Api Endpoints:
-User Routes:
+- **User Authentication & Authorization**: Role-based access (Admin, Teacher, Student).
+- **Course Management**: CRUD operations for courses.
+- **Enrollment Management**: Admin-managed enrollments, students can self-enroll.
+- **Grade Management**: Teachers can assign grades; students can view their grades.
+- **Assignment Management**: Teachers upload, students submit.
+- **Course Analytics**: Provides insights using MongoDB aggregations.
 
-POST /user/signup: Register user with role
-POST /user/login: Login user with proper validation
+## Technologies
 
-Course Routes:
+- **Node.js**: JavaScript runtime.
+- **Express.js**: Web framework.
+- **MongoDB**: NoSQL database.
+- **Mongoose**: ORM for MongoDB.
+- **JWT**: JSON Web Token for authentication.
+- **Multer**: File handling middleware.
+- **dotenv**: Manages environment variables.
 
-Accessible to Admin-
-POST /course/admin/add: Add a new course.
-GET /course/admin/get: Fetch all courses.
-GET /course/admin/get/:id: Fetch a course by its ID.
-PATCH /course/admin/update/:id: Update a course by its ID.
-DELETE /course/admin/delete/:id: Delete a course by its ID.
+## API Endpoints
 
-Accessible to Teacher-
-POST /course/:courseId/assignment: With file upload validation.
-POST /course/:courseId/quiz: Add Quiz
+### User Routes
 
-Accessible to Student-
-GET /course/get: Getting Course
-POST /course/:courseId/enroll: To enroll in course
-POST /course/:courseId/assignments/:assignmentId/submit: To submit assignment file of student with validation
+- **POST /user/signup**: Register users with roles.
+- **POST /user/login**: User login.
 
-Enrollment Routes:
+### Course Routes
 
-Accessible to Admin-
-POST /enrollments/enroll: Enroll Student By Admin
-POST /enrollments/remove: Remove Student By Admin
+#### Admin
+- **POST /course/admin/add**: Add a course.
+- **GET /course/admin/get**: List all courses.
+- **GET /course/admin/get/:id**: Get course by ID.
+- **PATCH /course/admin/update/:id**: Update course.
+- **DELETE /course/admin/delete/:id**: Delete course.
 
-Accessible to Student-
-GET /enrollments/my_enrollments: Get enrolled courses by student
+#### Teacher
+- **POST /course/:courseId/assignment**: Upload assignment.
+- **POST /course/:courseId/quiz**: Add quiz.
 
-Grade Routes:
+#### Student
+- **GET /course/get**: List all courses.
+- **POST /course/:courseId/enroll**: Enroll in a course.
+- **POST /course/:courseId/assignments/:assignmentId/submit**: Submit assignment.
 
-Accessible to Teacher-
-POST /grades/assign: To assign grade to students
+### Enrollment Routes
 
-Accessible to Student-
-GET /grades/my_grades: Get grades of student
+#### Admin
+- **POST /enrollments/enroll**: Enroll a student.
+- **POST /enrollments/remove**: Remove a student.
 
-Analytics Routes:
+#### Student
+- **GET /enrollments/my_enrollments**: View enrolled courses.
 
-Accessible to Student-
-GET /analytics/total_students/:courseId: Fetch counts of students from course
+### Grade Routes
 
-GET /analytics/average_grade/:studentId: Fetch average of student's grade from course all grades 
+#### Teacher
+- **POST /grades/assign**: Assign grades to students.
 
-Requirements
-To run this project locally, ensure you have the following installed:
+#### Student
+- **GET /grades/my_grades**: View own grades.
 
-Node.js (v12+): Install Node.js
-MongoDB: Install MongoDB locally or use a MongoDB cloud service like MongoDB Atlas.
+### Analytics Routes
 
-Installation:
-Clone the repository to your local machine.
+#### Student
+- **GET /analytics/total_students/:courseId**: Get total students in a course.
+- **GET /analytics/average_grade/:studentId**: Get average grade per course.
+
+## Requirements
+
+- **Node.js** (v12+)
+- **MongoDB** (local or MongoDB Atlas)
+
+## Installation
+
+1. Clone the repository:
+   git clone <repository-url>
+
 
 Steps Overview:
 Clone the repository: git clone.
